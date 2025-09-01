@@ -1,38 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artículo</title>
+  <meta charset="utf-8">
+  <title>Master Chef Blog</title>
 </head>
-<body>  
+<body>
     <article>
-    <header>
+        <header>
+            <!-- time: fecha legible -->
+            <p>publicado por MasterChef, 
+            <time datetime="2018-11-15">November 15, 2018</time>
+            </p>
+        </header>
 
-        <p>publicado por MasterChef, November 15, 2018</p>
+        <!-- h2: Título del artículo -->
+        <h2>Bajito y Despacito</h2>
 
-    </header>
+        <p>Esta semana estamos <em>extremadamente</em> <!-- em: énfasis -->
+            emocionados por presentar una nueva técnica de cocina llamada 
+            <!-- dfn + i: término definido y extranjerismo -->
+            <dfn title="Cocción al vacío"><i>sous vide</i></dfn>. 
+            Con la técnica <i>sous vide</i>, <!-- i: extranjerismo repetido -->
+            tú sumerges un recipiente (generalmente de plástico sellado al vacío) en un baño de agua
+            que precisamente se adapta a la temperatura requerida para que la comida sea cocinada. 
+            En este programa, <cite>Cocina para Geeks</cite> <!-- cita: obra/publicación -->
+            describe la técnica como <q>poción mágica a temperatura ultra baja</q>. <!-- q: cita breve -->
+        </p>
 
-    <h2>Bajito y Despacito</h2>
+        <p>La siguiente semana, prepararemos 
+            <cite>Salmon Sous Vide con Eneldo Holandés</cite>. <!-- cita: título de receta -->
+            Para asistir al programa, contáctanos antes del 30 de Noviembre.</p>
 
-    <p>Esta semana estamos extremadamente emocionados por presentar una
-    nueva técnica de cocina llamada sous vide. Con la técnica sous
-    vide, tú sumerges un recipiente (generalmente de plástico sellado
-    al vacío) en un baño de agua que precisamente se adapta a la
-    temperatura requerida para que la comida sea cocinada. En este
-    programa, Cocina para Geeks, Jaime Potter describe la técnica como
-    poción mágica a temperatura ultra baja.</p>
+        <p>registro@masterchef.com<br><!-- br: salto de línea explícito -->
+            552-336-1800</p>
 
-    <p>La siguiente semana, prepararemos Salmon Sous Vide con Eneldo
-    Holandés. Para asistir al programa, contáctanos antes del 30 de
-    Noviembre.</p>
-
-    <p>registro@masterchef.com<br>
-    552-336-1800</p>
-    
-    <p>Advertencia: El salmón cocinado a la Sous vide no está
-    pasteurizado. Evítalo se está embarazada o se tiene problemas de
-    alergia e inmunidad.</p>
+        <p><b>Advertencia:</b> <!-- b: resaltar etiqueta/leyenda -->
+            <small>El salmón cocinado a la <i>Sous vide</i> no está pasteurizado. 
+            Evítalo si se está embarazada o se tienen problemas de alergia e inmunidad.</small> 
+            <!-- small: texto de advertencia en "letra chica" -->
+        </p>
     </article>
 </body>
 </html>
