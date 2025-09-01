@@ -8,15 +8,6 @@ body {
     line-height: 1.6;
 }
 
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
 header {
     text-align: center;
     padding-bottom: 20px;
@@ -141,13 +132,13 @@ p {
 }
 
 em, i {
-    color: #FF5722;
+    color: #080808;
     font-style: italic;
 }
 
 q {
     font-style: italic;
-    color: #00796B;
+    color: #8202c7;
 }
 
 q::before {
@@ -160,7 +151,7 @@ q::after {
 
 cite {
     font-style: italic;
-    color: #FFC107;
+    color: #df8600;
 }
 
 small {
@@ -186,5 +177,21 @@ dfn {
 
 time {
     font-weight: 600;
-    color: #607D8B;
+    color: #079205;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px; 
+}
+
+article h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #212121;
+    margin-top: 0; 
+    margin-bottom: 15px;
+    text-align: center;
 }
