@@ -1,4 +1,4 @@
-
+/* Tus estilos CSS originales */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -89,4 +89,102 @@ footer {
     border-top: 1px solid #eee;
     color: #777;
     font-size: 0.9em;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+article {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1542845112-0738d01168f1?q=80&w=2940&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+header p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+article h2 {
+    color: #4CAF50;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+em, i {
+    color: #FF5722;
+    font-style: italic;
+}
+
+q {
+    font-style: italic;
+    color: #00796B;
+}
+
+q::before {
+    content: '“';
+}
+
+q::after {
+    content: '”';
+}
+
+cite {
+    font-style: italic;
+    color: #FFC107;
+}
+
+small {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-left: 5px solid #E91E63;
+    background-color: #fce4ec;
+    color: #880E4F;
+    font-size: 0.8em;
+    border-radius: 5px;
+}
+
+b {
+    color: #D32F2F;
+}
+
+dfn {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted #333;
+}
+
+time {
+    font-weight: 600;
+    color: #607D8B;
 }
