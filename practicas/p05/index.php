@@ -30,5 +30,32 @@
         echo '<li>$house*5 es inválida porque el símbolo * no está permitido.</li>';
         echo '</ul>';
     ?>
+
+        <!-- EJERCICIO 2 -->
+    <h2>Ejercicio 2</h2>
+    <p>Proporcionar y mostrar valores de $a, $b, $c; luego reasignar y volver a mostrar.</p>
+    <?php
+    
+    $a = "ManejadorSQL";
+    $b = 'MySQL';
+    $c = &$a; // $c referencia a $a
+
+    echo '<h4>Antes del segundo bloque:</h4>';
+    var_dump($a, $b, $c);
+
+   
+    $a = "PHP server";
+    $b = &$a; // ahora $b referencia a $a
+
+    echo '<h4>Después del segundo bloque:</h4>';
+    var_dump($a, $b, $c);
+
+    echo '<p><strong>Descripción:</strong> Inicialmente $c era referencia a $a (ambos valían "ManejadorSQL"). ' .
+         'Al asignar $a = "PHP server"; el valor referenciado cambia y tanto $a como $c muestran "PHP server". ' .
+         'Al hacer <code>$b = & $a</code>, $b pasa a ser otra referencia a la misma zval; al final $a, $b y $c apuntan al mismo valor "PHP server".</p>';
+
+    unset($a, $b, $c);
+    ?>
+
 </body>
 </html>
