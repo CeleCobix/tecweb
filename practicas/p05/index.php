@@ -125,6 +125,28 @@
 
     unset($a, $b, $c);
     ?>
+
+    <!-- EJERCICIO 6 -->
+    <h2>Ejercicio 6</h2>
+    <p>Comprobar valores booleanos y mostrarlos con <code>var_dump</code>. Luego convertir booleanos a texto para <code>echo</code>.</p>
+    <?php
+    $a = "0";
+    $b = "TRUE";
+    $c = FALSE;
+
+    $d = ($a OR $b);   
+    $e = ($a AND $c);  
+    $f = ($a XOR $b); 
+
+    echo '<h4>var_dump de los valores:</h4>';
+    var_dump($a, $b, $c, $d, $e, $f);
+
+    echo '<h4>Cómo mostrar booleanos con echo:</h4>';
+    echo 'c = ' . var_export($c, true) . '<br />'; // var_export retorna "false" o "true" como string
+    echo 'e = ' . ( $e ? 'true' : 'false' ) . '<br />'; // alternativa con ternario
+
+    unset($a, $b, $c, $d, $e, $f);
+    ?>
     
 </body>
 </html>
