@@ -1,0 +1,197 @@
+/* Tus estilos CSS originales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    color: #4CAF50;
+    margin: 0;
+}
+
+article h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #212121;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+blockquote {
+    background-color: #e8f5e9;
+    border-left: 5px solid #4CAF50;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+    border-radius: 4px;
+}
+
+.guacamole-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 25px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e8f5e9;
+    padding-bottom: 5px;
+}
+
+ul, ol {
+    margin-left: 20px;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 0.9em;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+article {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1542845112-0738d01168f1?q=80&w=2940&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+header p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+article h2 {
+    color: #4CAF50;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+em, i {
+    color: #080808;
+    font-style: italic;
+}
+
+q {
+    font-style: italic;
+    color: #8202c7;
+}
+
+q::before {
+    content: '“';
+}
+
+q::after {
+    content: '”';
+}
+
+cite {
+    font-style: italic;
+    color: #df8600;
+}
+
+small {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+    border-left: 5px solid #E91E63;
+    background-color: #fce4ec;
+    color: #880E4F;
+    font-size: 0.8em;
+    border-radius: 5px;
+}
+
+b {
+    color: #D32F2F;
+}
+
+dfn {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted #333;
+}
+
+time {
+    font-weight: 600;
+    color: #079205;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px; 
+}
+
+article h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #212121;
+    margin-top: 0; 
+    margin-bottom: 15px;
+    text-align: center;
+}
