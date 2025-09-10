@@ -52,14 +52,14 @@
     echo '<p><strong>Descripción:</strong> Inicialmente $c era referencia a $a (ambos valían "ManejadorSQL"). ' .
          'Al asignar $a = "PHP server"; el valor referenciado cambia y tanto $a como $c muestran "PHP server". ' .
          'Al hacer <code>$b = & $a</code>, $b pasa a ser otra referencia a la misma zval; al final $a, $b y $c apuntan al mismo valor "PHP server".</p>';
+    
+    unset($a, $b, $c);
     ?>
 
-     <!-- EJERCICIO 3 -->
      <!-- EJERCICIO 3 -->
     <h2>Ejercicio 3</h2>
     <p>Muestra el contenido inmediatamente después de cada asignación y verifica el tipo / evolución.</p>
     <?php
-    // Paso a paso - mostrar inmediatamente después de cada operación
     $a = "PHP5";
     echo '<h4>$a = "PHP5";</h4>';
     echo "Variable a: "; var_dump($a);
@@ -95,5 +95,22 @@
 
     ?>
 
+    <!-- EJERCICIO 4 -->
+    <h2>Ejercicio 4</h2>
+    <p>Mostrar los valores del ejercicio anterior usando <code>$GLOBALS</code> o <code>global</code>.</p>
+    <?php
+    echo '<h4>Acceso con $GLOBALS:</h4>';
+    // $a,$b,$c,$z siguen definidos
+    echo '<pre>';
+    echo 'GLOBALS["a"]: '; var_dump($GLOBALS['a']);
+    echo 'GLOBALS["b"]: '; var_dump($GLOBALS['b']);
+    echo 'GLOBALS["c"]: '; var_dump($GLOBALS['c']);
+    echo 'GLOBALS["z"]: '; print_r($GLOBALS['z']);
+    echo '</pre>';
+
+    unset($a, $b, $c, $z);
+    ?>
+
+    
 </body>
 </html>
