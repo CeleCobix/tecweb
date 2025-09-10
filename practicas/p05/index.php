@@ -53,7 +53,6 @@
          'Al asignar $a = "PHP server"; el valor referenciado cambia y tanto $a como $c muestran "PHP server". ' .
          'Al hacer <code>$b = & $a</code>, $b pasa a ser otra referencia a la misma zval; al final $a, $b y $c apuntan al mismo valor "PHP server".</p>';
     
-    unset($a, $b, $c);
     ?>
 
      <!-- EJERCICIO 3 -->
@@ -73,7 +72,7 @@
     echo '<h4>$b = "5a version de PHP";</h4>';
     echo "Variable b: "; var_dump($b);
 
-    $c = $b * 10; // $b se convierte numéricamente (toma el prefijo numérico: 5)
+    $c = (int)$b * 10; // $b se convierte numéricamente (toma el prefijo numérico: 5)
     echo '<h4>$c = $b * 10;</h4>';
     echo "Variable c: "; var_dump($c);
 
@@ -111,6 +110,21 @@
     unset($a, $b, $c, $z);
     ?>
 
+     <!-- EJERCICIO 5 -->
+    <h2>Ejercicio 5</h2>
+    <p>Dar el valor final de $a, $b, $c para las asignaciones indicadas.</p>
+    <?php
+    $a = "7 personas";
+    $b = (integer) $a; // transforma a 7
+    $a = "9E3";
+    $c = (double) $a; // 9E3 => 9000.0
+
+    echo '<h4>Resultados:</h4>';
+    echo "Variable a: " . $a;  echo " Variable b: " . $b; echo " Variable c: " . $c;
+    echo '<p>Explicación: (integer) toma el número inicial hasta que encuentra no-numérico; "9E3" se interpreta como notación científica y (double) la convierte a 9000.0.</p>';
+
+    unset($a, $b, $c);
+    ?>
     
 </body>
 </html>
