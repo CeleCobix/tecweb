@@ -147,6 +147,22 @@
 
     unset($a, $b, $c, $d, $e, $f);
     ?>
+
+    <!-- EJERCICIO 7 -->
+    <h2>Ejercicio 7</h2>
+    <p>Usar <code>$_SERVER</code> para obtener versión Apache/PHP, nombre del OS y el idioma del navegador.</p>
+    <?php
+    echo '<h4>Versión del servidor / software:</h4>';
+    // SERVER_SOFTWARE puede contener info de Apache+PHP
+    echo '<p>$_SERVER[\'SERVER_SOFTWARE\']: ' . ($_SERVER['SERVER_SOFTWARE'] ?? 'N/D') . '</p>';
+
+    echo '<p>Versión PHP (phpversion()): ' . phpversion() . '</p>';
+
+    // Nombre del sistema operativo (servidor)
+    echo '<p>php_uname(): ' . php_uname() . '</p>';
+
+    echo '<p>Idioma preferido del cliente: ' . ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'N/D') . '</p>';
+    ?>
     
 </body>
 </html>
