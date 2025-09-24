@@ -13,4 +13,24 @@ function multiplode5y7($num) {
     }
 }
 
+function generarSecuenciaImparParImpar($maxRandom = 999) {
+    $matriz = [];
+    $iteraciones = 0;
+    while (true) {
+        $a = mt_rand(0, $maxRandom);
+        $b = mt_rand(0, $maxRandom);
+        $c = mt_rand(0, $maxRandom);
+        $matriz[] = [$a, $b, $c];
+        $iteraciones++;
+        if (($a % 2 !== 0) && ($b % 2 === 0) && ($c % 2 !== 0)) break;
+    }
+    return [
+        'matriz' => $matriz,
+        'iteraciones' => $iteraciones,
+        'numeros' => $iteraciones * 3
+    ];
+}
+
+
+
 ?>

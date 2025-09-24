@@ -17,6 +17,14 @@
         }
     ?>
 
+    <h2>Ejercicio 2</h2>
+    <p>Generar una secuencia de números aleatorios con la siguiente estructura: impar, par, impar.</p>
+    <?php
+        $resultado = generarSecuenciaImparParImpar();
+        echo '<h3>R= Se generó la siguiente secuencia:</h3>';
+        echo '<pre>' . print_r($resultado, true) . '</pre>';
+    ?>
+
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p07/index.php" method="post">
         Name: <input type="text" name="name"><br>
