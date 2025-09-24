@@ -53,4 +53,13 @@ function encontrarMultiploWhile($num) {
     echo "<p>Se necesitaron: <b>{$intentos}</b> intentos.</p>";
 }
 
+function indicesASCII(){
+    $array = [];
+    for ($i = 97; $i <= 122; $i++) {
+        $array[$i] = chr($i);
+    }
+
+    return $array;
+}
+
 ?>

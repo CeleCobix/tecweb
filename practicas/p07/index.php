@@ -34,6 +34,21 @@
         }
     ?>
 
+    <h2>Ejercicio 4</h2>
+    <p>Generar un arreglo asociativo con los índices ASCII de las letras minúsculas.</p>
+    <?php
+        require_once 'src/funciones.php';
+        $asciiArray = indicesASCII();
+        echo "<table>";
+        echo "<tr><th>Indice (ASCII)</th><th>Letra</th></tr>";
+        
+        foreach ($asciiArray as $key => $value) {
+            echo "<tr><td>$key</td><td>$value</td></tr>";
+        }
+        
+        echo "</table>";
+    ?>
+
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p07/index.php" method="post">
         Name: <input type="text" name="name"><br>
