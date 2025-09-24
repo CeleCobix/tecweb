@@ -24,13 +24,33 @@ function generarSecuenciaImparParImpar($maxRandom = 999) {
         $iteraciones++;
         if (($a % 2 !== 0) && ($b % 2 === 0) && ($c % 2 !== 0)) break;
     }
-    return [
+
+    $resultado = [
         'matriz' => $matriz,
         'iteraciones' => $iteraciones,
         'numeros' => $iteraciones * 3
     ];
+
+    echo '<h3>Resultados de la secuencia:</h3>';
+    echo '<pre>';
+    print_r($resultado);
+    echo '</pre>';
+
+    return $resultado;
 }
 
+function encontrarMultiploWhile($num) {
+    $numero_encontrado = 0;
+    $intentos = 0;
 
+    while ($numero_encontrado % $num !== 0 || $numero_encontrado === 0) {
+        $numero_encontrado = mt_rand(1, 100000); 
+        $intentos++;
+    }
+
+    echo "<p>Buscando el primer múltiplo de <b>{$num}</b>.</p>";
+    echo "<p>El número encontrado es: <b>{$numero_encontrado}</b></p>";
+    echo "<p>Se necesitaron: <b>{$intentos}</b> intentos.</p>";
+}
 
 ?>

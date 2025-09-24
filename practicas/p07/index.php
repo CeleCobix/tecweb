@@ -20,9 +20,18 @@
     <h2>Ejercicio 2</h2>
     <p>Generar una secuencia de números aleatorios con la siguiente estructura: impar, par, impar.</p>
     <?php
-        $resultado = generarSecuenciaImparParImpar();
-        echo '<h3>R= Se generó la siguiente secuencia:</h3>';
-        echo '<pre>' . print_r($resultado, true) . '</pre>';
+        generarSecuenciaImparParImpar();
+    ?>
+
+    <h2>Ejercicio 3</h2>
+    <p>Generar números aleatorios hasta encontrar un múltiplo de un número dado.</p>
+    <?php
+        require_once 'src/funciones.php';
+        if(isset($_GET['num']))
+        {
+            $num = $_GET['num'];
+            encontrarMultiploWhile($num);
+        }
     ?>
 
     <h2>Ejemplo de POST</h2>
