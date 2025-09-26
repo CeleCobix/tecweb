@@ -49,6 +49,29 @@
         echo "</table>";
     ?>
 
+    <h2>Ejercicio 5</h2>
+    <p>Validar el sexo y la edad de una persona.</p>
+    <form action="http://localhost/tecweb/practicas/p07/ejercicio5.php" method="post">       
+        Edad: <input type="text" name="edad"><br>
+        Sexo: 
+        <select name="sexo">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select>
+        <br>
+        <input type="submit">
+    </form>
+
+    <h2>Ejercicio 6</h2>
+    <p>Buscar matrícula en un arreglo.</p>
+    <form action="http://localhost/tecweb/practicas/p07/ejercicio6.php" method="post">
+        <label for="matricula">Ingrese matrícula:</label>
+        <input type="text" id="matricula" name="matricula" />
+        <input type="submit" name="accion" value="Buscar Matrícula" />
+        <br><br>
+        <input type="submit" name="accion" value="Mostrar Listado" />
+    </form>
+
     <h2>Ejemplo de POST</h2>
     <form action="http://localhost/tecweb/practicas/p07/index.php" method="post">
         Name: <input type="text" name="name"><br>
