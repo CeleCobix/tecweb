@@ -2,24 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Práctica 3</title>
+    <title>Práctica 5</title>
 </head>
 <body>
-    <h2>Ejercicio 1</h2>
+    <h2>Ejercicio 1 - variables</h2>
     <p>Determina cuál de las siguientes variables son válidas y explica por qué:</p>
     <p>$_myvar,  $_7var,  myvar,  $myvar,  $var7,  $_element1, $house*5</p>
     <?php
         //AQUI VA MI CÓDIGO PHP
-        $_myvar;
-        $_7var;
+        $_myvar = 'valor de $_myvar';
+        $_7var = 'valor de $_7var (empieza por _ luego dígito; permitido)';
         //myvar;       // Inválida
-        $myvar;
-        $var7;
-        $_element1;
+        $myvar =  'valor de $myvar';
+        $var7 = 'valor de $var7';
+        $_element1 = 'valor de $_element1';
         //$house*5;     // Invalida
         
         echo '<h4>Respuesta:</h4>';   
-    
         echo '<ul>';
         echo '<li>$_myvar es válida porque inicia con guión bajo.</li>';
         echo '<li>$_7var es válida porque inicia con guión bajo.</li>';
@@ -31,138 +30,133 @@
         echo '</ul>';
     ?>
 
-        <!-- EJERCICIO 2 -->
-    <h2>Ejercicio 2</h2>
-    <p>Proporcionar y mostrar valores de $a, $b, $c; luego reasignar y volver a mostrar.</p>
+    <h2>Ejercicio 2 — referencias</h2>
+    <p>Asignar y luego reasignar referencias; mostramos el contenido antes y después.</p>
+
     <?php
-    
+    echo "<h3>a) Asignaciones iniciales y salida:</h3>\n";
     $a = "ManejadorSQL";
     $b = 'MySQL';
     $c = &$a; // $c referencia a $a
 
-    echo '<h4>Antes del segundo bloque:</h4>';
-    echo "Variable a: " . $a;  echo " Variable b: " . $b; echo " Variable c: " . $c;
-   
-    $a = "PHP server";
-    $b = &$a; // ahora $b referencia a $a
+    echo "<p> a: $a</p>";
+    echo "<p> b: $b</p>";
+    echo "<p> c: $c</p>";
 
-    echo '<h4>Después del segundo bloque:</h4>';
-    echo "Variable a: " . $a;  echo " Variable b: " . $b; echo " Variable c: " . $c;
-
-    echo '<p><strong>Descripción:</strong> Inicialmente $c era referencia a $a (ambos valían "ManejadorSQL"). ' .
-         'Al asignar $a = "PHP server"; el valor referenciado cambia y tanto $a como $c muestran "PHP server". ' .
-         'Al hacer <code>$b = & $a</code>, $b pasa a ser otra referencia a la misma zval; al final $a, $b y $c apuntan al mismo valor "PHP server".</p>';
+    echo "<h3>b) Nuevas asignaciones:</h3>\n";
+    $a = "PHP server"; // modifica la variable referenciada
+    $b = &$a;          // ahora $b referencia a $a (pierde el dato 'MySQL')
+    echo "<p> a: $a</p>";
+    echo "<p> b: $b</p>";
+    echo "<p> c: $c</p>";
     
+    echo "<p><strong>Descripción de lo ocurrido:</strong> 
+    En el segundo bloque, al cambiar <code>\$a</code> a <em>\"PHP server\"</em>, ese nuevo valor también se reflejó en <code>\$c</code> porque estaba enlazado a <code>\$a</code>. 
+    Después, al hacer <code>\$b =&amp; \$a</code>, la variable <code>\$b</code> dejó de tener su valor anterior (<em>\"MySQL\"</em>) y pasó a apuntar al mismo lugar que <code>\$a</code>. 
+    Por eso, al final, las tres variables (<code>\$a</code>, <code>\$b</code> y <code>\$c</code>) muestran exactamente el mismo contenido: <em>\"PHP server\"</em>.
+    </p>";
     ?>
 
-     <!-- EJERCICIO 3 -->
-    <h2>Ejercicio 3</h2>
-    <p>Muestra el contenido inmediatamente después de cada asignación y verifica el tipo / evolución.</p>
+    <h2>Ejercicio 3 — evolución y tipo de variables</h2>
     <?php
     $a = "PHP5";
-    echo '<h4>$a = "PHP5";</h4>';
-    echo "Variable a: "; var_dump($a);
+    echo "<p><strong>1) <code>\$a = \"PHP5\"</code>:</strong></p>\n";
+    echo "<p> -> a: $a</p>";
 
     $z = array();
-    $z[] = &$a; // $z[0] es referencia a $a
-    echo '<h4>$z[] = & $a; (ahora $z[0] referencia a $a)</h4>';
-    echo "Variable z: "; var_dump($z);
+    $z[] = &$a; // $z[0] referencia a $a
+    echo "<p><strong>2) <code>\$z[] =&amp; \$a</code></strong></p><pre>";
+    echo htmlspecialchars(var_export($z, true));
+    echo "</pre>";
 
     $b = "5a version de PHP";
-    echo '<h4>$b = "5a version de PHP";</h4>';
-    echo "Variable b: "; var_dump($b);
+    echo "<p><strong>3) <code>\$b = \"5a version de PHP\"</code>:</strong></p>"; 
+    echo "<p> -> b: $b</p>";
 
-    $c = (int)$b * 10; // $b se convierte numéricamente (toma el prefijo numérico: 5)
-    echo '<h4>$c = $b * 10;</h4>';
-    echo "Variable c: "; var_dump($c);
+    $c = $b * 10;
+    echo "<p><strong>4) <code>\$c = \$b * 10</code>:</strong></p><pre>"; 
+    var_dump($c); 
+    echo "</pre>";
 
-    $a .= $b; // concatenación, cambia $a (y entonces también cambia $z[0] porque es referencia)
-    echo '<h4>$a .= $b; (concatenación)</h4>';
-    echo "Variable a: "; var_dump($a);
-    echo '<p>Nota: como $z[0] referencia a $a, su valor también refleja el nuevo valor de $a.</p>';
-    echo "Variable z: "; var_dump($z);
+    $a .= $b; // concatenación, $a sigue siendo cadena
+    echo "<p><strong>5) <code>\$a .= \$b</code> (concatenación):</strong></p>"; 
+    echo "<p> -> a: $a</p>";
 
-    $b *= $c; // $b (cadena) convertida a número (5) y multiplicada por $c
-    echo '<h4>$b *= $c;</h4>';
-    echo "Variable b: "; var_dump($b);
+    $b *= $c; // $b se convierte en numérico (5) y multiplica por $c (50) -> 250
+    echo "<p><strong>6) <code>\$b *= \$c</code>:</strong></p>"; 
+    echo "<p> -> b: $b</p>";
 
-    $z[0] = "MySQL"; // asignación sobre el elemento referenciado — modifica también $a
-    echo '<h4>$z[0] = "MySQL";</h4>';
-    echo "Variable z: "; var_dump($z);
-    echo '<p>Comprobación: $a también cambia porque $z[0] era referencia a $a:</p>';
-    echo "Variable a: "; var_dump($a);
-
+    $z[0] = "MySQL"; 
+    echo "<p><strong>7) <code>\$z[0] = \"MySQL\"</code> (sobrescribe la referencia):</strong></p><pre>";
+    echo htmlspecialchars(var_export($z, true));
+    echo "</pre>";
     ?>
 
-    <!-- EJERCICIO 4 -->
-    <h2>Ejercicio 4</h2>
-    <p>Mostrar los valores del ejercicio anterior usando <code>$GLOBALS</code> o <code>global</code>.</p>
+    <h2>Ejercicio 4 - Leer y mostrar los valores de las variables del ejercicio 3</h2>
     <?php
-    echo '<h4>Acceso con $GLOBALS:</h4>';
-    // $a,$b,$c,$z siguen definidos
-    echo '<pre>';
-    echo 'GLOBALS["a"]: '; var_dump($GLOBALS['a']);
-    echo 'GLOBALS["b"]: '; var_dump($GLOBALS['b']);
-    echo 'GLOBALS["c"]: '; var_dump($GLOBALS['c']);
-    echo 'GLOBALS["z"]: '; print_r($GLOBALS['z']);
-    echo '</pre>';
+    echo "<h4>4) Usando <code>global</code> dentro de una función:</h4>\n";
 
-    unset($a, $b, $c, $z);
+    function leerConGlobal() {
+        global $a, $b, $c, $z;
+        echo "<pre>";
+        var_dump($a, $b, $c);
+        echo htmlspecialchars(var_export($z, true));
+        echo "</pre>";
+    }
+    leerConGlobal();
     ?>
-
-     <!-- EJERCICIO 5 -->
-    <h2>Ejercicio 5</h2>
-    <p>Dar el valor final de $a, $b, $c para las asignaciones indicadas.</p>
+        
+    <h2>Ejercicio 5 — valor a las variables</h2>
     <?php
     $a = "7 personas";
-    $b = (integer) $a; // transforma a 7
+    $b = (integer) $a; // convierte "7 personas" -> 7
     $a = "9E3";
-    $c = (double) $a; // 9E3 => 9000.0
+    $c = (double) $a;  // "9E3" -> 9000.0 (notación científica)
 
-    echo '<h4>Resultados:</h4>';
-    echo "Variable a: " . $a;  echo " Variable b: " . $b; echo " Variable c: " . $c;
-    echo '<p>Explicación: (integer) toma el número inicial hasta que encuentra no-numérico; "9E3" se interpreta como notación científica y (double) la convierte a 9000.0.</p>';
-
-    unset($a, $b, $c);
+    echo "<p> -> a: ", var_dump($a), "</p>";
+    echo "<p> -> b: ", var_dump($b), "</p>";
+    echo "<p> -> c: ", var_dump($c), "</p>";
     ?>
 
-    <!-- EJERCICIO 6 -->
-    <h2>Ejercicio 6</h2>
-    <p>Comprobar valores booleanos y mostrarlos con <code>var_dump</code>. Luego convertir booleanos a texto para <code>echo</code>.</p>
+    <h2>Ejercicio 6 — valores booleanos</h2>
     <?php
-    $a = "0";
-    $b = "TRUE";
+    $a = "0";      
+    $b = "TRUE";   
     $c = FALSE;
+    $d = ($a OR $b);    
+    $e = ($a AND $c);   
+    $f = ($a XOR $b);   
 
-    $d = ($a OR $b);   
-    $e = ($a AND $c);  
-    $f = ($a XOR $b); 
-
-    echo '<h4>var_dump de los valores:</h4>';
+    echo "<pre>";
     var_dump($a, $b, $c, $d, $e, $f);
+    echo "</pre>";
 
-    echo '<h4>Cómo mostrar booleanos con echo:</h4>';
-    echo 'c = ' . var_export($c, true) . '<br />'; // var_export retorna "false" o "true" como string
-    echo 'e = ' . ( $e ? 'true' : 'false' ) . '<br />'; // alternativa con ternario
-
-    unset($a, $b, $c, $d, $e, $f);
+    echo "<h4>Transformar booleanos con var_export()</h4>";
+    echo "<p>Valor de c: " . var_export($c, true) . "<br />\n";
+    echo "Valor de e: " . var_export($e, true) . "<br /></p>\n";
     ?>
 
-    <!-- EJERCICIO 7 -->
-    <h2>Ejercicio 7</h2>
-    <p>Usar <code>$_SERVER</code> para obtener versión Apache/PHP, nombre del OS y el idioma del navegador.</p>
+     <h2>Ejercicio 7 — variable $_SERVER</h2>
     <?php
-    echo '<h4>Versión del servidor / software:</h4>';
-    // SERVER_SOFTWARE puede contener info de Apache+PHP
-    echo '<p>$_SERVER[\'SERVER_SOFTWARE\']: ' . ($_SERVER['SERVER_SOFTWARE'] ?? 'N/D') . '</p>';
+    echo "<pre>";
+    echo "SERVER_SOFTWARE (servidor web): ";
+    echo isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : "No disponible (CLI o entorno restringido)";
+    echo "\n";
 
-    echo '<p>Versión PHP (phpversion()): ' . phpversion() . '</p>';
+    echo "Versión de PHP (phpversion()): " . phpversion() . "\n";
 
-    // Nombre del sistema operativo (servidor)
-    echo '<p>php_uname(): ' . php_uname() . '</p>';
+    echo "Sistema operativo (php_uname): " . php_uname() . "\n";
 
-    echo '<p>Idioma preferido del cliente: ' . ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'N/D') . '</p>';
+    echo "Idioma del navegador (HTTP_ACCEPT_LANGUAGE): ";
+    echo isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : "No disponible (depende del cliente/entorno)";
+    echo "\n";
+    echo "</pre>";
     ?>
+    <p>
+    <a href="https://validator.w3.org/check?uri=referer"><img
+      src="https://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" /></a>
+    </p>
     
+  
 </body>
 </html>
