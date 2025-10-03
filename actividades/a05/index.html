@@ -135,5 +135,255 @@
     <h1>Ejercicio 6: Condicionales 2</h1>
     <div id="ejer6"></div>
     <input id="btnejercicio6" type="button" value="Enviar" onclick="ejercicio6();" />
+
+    <!--
+    <script type=“text/javascript”>
+        var nota1,nota2,nota3;
+
+        nota1 = prompt(‘Ingresa 1ra. nota:’, ‘’);
+        nota2 = prompt(‘Ingresa 2da. nota:’, ‘’);
+        nota3 = prompt(‘Ingresa 3ra. nota:’, ‘’);
+
+        //Convertimos los 3 string en enteros
+        nota1 = parseInt(nota1);
+        nota2 = parseInt(nota2);
+        nota3 = parseInt(nota3);
+
+        var pro;
+        pro = (nota1+nota2+nota3)/3;
+        if (pro>=7) {
+            document.write(‘aprobado’);
+        }
+        else {
+            if (pro>=4) {
+                document.write(‘regular’);
+            }
+            else {
+                document.write(‘reprobado’);
+            }
+        }
+    </script>
+    -->
+
+    <h1>Ejercicio 7: Condicionales 3</h1>
+    <div id="ejer7"></div>
+    <input id="btnejercicio7" type="button" value="Enviar" onclick="ejercicio7();" />
+
+    <!--
+    <script type=“text/javascrip”>
+    var valor;
+    valor = prompt(‘Ingresar un valor comprendido entre 1 y 5:’, ‘’ );
+    //Convertimos a entero
+    valor = parseInt(valor);
+    switch (valor) {
+        case 1: document.write(‘uno’);break;
+        case 2: document.write(‘dos’);break;
+        case 3: document.write(‘tres’);break;
+        case 4: document.write(‘cuatro’);break;
+        case 5: document.write(‘cinco’);break;
+        default:document.write(‘debe ingresar un valor comprendido entre 1 y 5.’);
+    }
+    </script>
+    -->
+
+    <h1>Ejercicio 8: Condicionales 4</h1>
+    <div id="ejer8"></div>  
+    <input id="btnejercicio8" type="button" value="Enviar" onclick="ejercicio8();" />
+
+    <!--
+    <script type=“text/javascript”>
+        var col;
+        col = prompt(‘Ingresa el color con que quierar pintar el fondo de
+        la ventana (rojo, verde, azul)’ , ‘’ );
+        switch (col) {
+            case ‘rojo’: document.bgColor=‘#ff0000’; break;
+            case ‘verde’: document.bgColor=‘#00ff00’; break;
+            case ‘azul’: document.bgColor=‘#0000ff’; break;
+        }
+    </script>    
+    -->
+
+    <h1 >Ejercicio 9: Colores</h1>
+    <div id="ejer9"></div>
+    <input id="btnejercicio9" type="button" value="Enviar" onclick="ejercicio9();" />
+
+    <!--
+    <script type=“text/javascript”>
+        var x;
+        x=1;
+        while (x<=100) {
+            document.write(x);
+            document.write(‘<br>’);
+            x=x+1;
+        }
+    </script>
+    -->
+
+    <h1>Ejercicio 10: While</h1>
+    <div id="ejer10"></div>
+    <input id="btnejercicio10" type="button" value="Enviar" onclick="ejercicio10();" />
+
+    <!--
+    <script type=“text/javascript”>
+        var x=1;
+        var suma=0;
+        var valor;
+        while (x<=5){
+            valor = prompt(‘Ingresa el valor:’, ‘’);
+            valor = parseInt(valor);
+            suma = suma+valor;
+            x = x+1;
+        }
+        document.write(“La suma de los valores es ”+suma+“<br>”);
+    </script>
+    -->
+
+    <h1>Ejercicio 11: While 2</h1>
+    <div id="ejer11"></div>
+    <input id="btnejercicio11" type="button" value="Enviar" onclick="ejercicio11();" />
+
+    <!--
+    <script type = “text/javascript”>
+    var valor;
+    do{
+        valor = prompt(‘Ingresa un valor entre 0 y 999:’, ‘’);
+        valor = parseInt(valor);
+        document.write(‘El valor ’+valor+‘ tiene ’);
+        if (valor<10){
+            document.write(‘Tiene 1 dígitos’)
+        }
+        else{
+            if (valor<100) {
+                document.write(‘Tiene 2 dígitos’);
+            }
+            else {
+                document.write(‘Tiene 3 dígitos’);
+            }
+        }
+        document.write(‘<br>’);
+        }while(valor!=0);
+    </script>
+    -->
+
+    <h1>Ejercicio 12: Do While</h1>
+    <div id="ejer12"></div>
+    <input id="btnejercicio12" type="button" value="Enviar" onclick="ejercicio12();" />
+
+    <!--
+    <script type=“text/javascript”>
+        var f;
+        for(f=1; f<=10; f++)
+        {
+            document.write(f+“ ”);
+        }
+    </script>
+    -->
+
+    <h1>Ejercicio 13: For</h1>
+    <div id="ejer13"></div>
+    <input id="btnejercicio13" type="button" value="Enviar" onclick="ejercicio13();" />
+
+    <!--
+    <script type = “text/javascript”>
+        document.write(“Cuidado<br>”);
+        document.write(“Ingresa tu documento correctamente<br>”);
+        document.write(“Cuidado<br>”);
+        document.write(“Ingresa tu documento correctamente<br>”);
+        document.write(“Cuidado<br>”);
+        document.write(“Ingresa tu documento correctamente<br>”);
+    </script>
+    -->
+
+    <h1>Ejercicio 14: Repetición</h1>
+    <div id="ejer14"></div>
+    <input id="btnejercicio14" type="button" value="Enviar" onclick="ejercicio14();" />
+
+    <!--
+    <script type=“text/javascript”>
+        function mostrarMensaje() {
+            document.write(“Cuidado<br>”);
+            document.write(“Ingresa tu documento correctamente<br>”);
+        }
+        mostrarMensaje();
+        mostrarMensaje();
+        mostrarMensaje();
+    </script>
+    -->
+
+    <h1>Ejercicio 15: Funciones</h1>
+    <div id="ejer15"></div>
+    <input id="btnejercicio15" type="button" value="Enviar" onclick="ejercicio15();" />
+
+    <!--
+    <script type = “text/javascript”>
+        function mostrarRango(x1,x2) {
+            var inicio;
+            for(inicio=x1; inicio<=x2; inicio++) {
+                document.write(inicio+‘ ’);
+            }
+        }
+        
+        var valor1,valor2;
+        valor1 = prompt(‘Ingresa el valor inferior:’, ‘’);
+        valor1 = parseInt(valor1);
+        valor2 = prompt(‘Ingresa el valor superior:’, ‘’);
+        valor2 = parseInt(valor2);
+        mostrarRango(valor1,valor2);
+    </script>
+    -->
+
+    <h1>Ejercicio 16: Funciones 2</h1>
+    <div id="ejer16"></div>
+    <input id="btnejercicio16" type="button" value="Enviar" onclick="ejercicio16();" />
+
+    <!--
+    <script type="text/javascript">
+    function convertirCastellano(x) {
+        if(x==1)
+            return “uno”;
+        else
+            if(x==2)
+                return “dos”;
+            else
+                if(x==3)
+                    return “tres”;
+                else
+                    if(x==4)
+                        return “cuatro”;
+                    else
+                        if(x==5)
+                            return “cinco”;
+                        else
+                            return “valor incorrecto”;
+    }
+
+        var valor = prompt(“Ingresa un valor entre 1 y 5”, “”);
+        valor = parseInt(valor);
+        var r = convertirCastellano(valor);
+        document.write(r);
+    </script>
+    -->
+
+    <h1>Ejercicio 17: Funciones 3</h1>
+    <div id="ejer17"></div> 
+    <input id="btnejercicio17" type="button" value="Enviar" onclick="ejercicio17();" />
+
+    <!--
+    function convertirCastellano(x) {
+        switch (x) {
+        case 1: return "uno";
+        case 2: return "dos";
+        case 3: return "tres";
+        case 4: return "cuatro";
+        case 5: return "cinco";
+        default: return "valor incorrecto";
+        }
+    }
+    -->
+
+    <h1>Ejercicio 18: Funciones 4</h1>
+    <div id="ejer18"></div>
+    <input id="btnejercicio18" type="button" value="Enviar" onclick="ejercicio18();" />
+
 </body>
 </html>
