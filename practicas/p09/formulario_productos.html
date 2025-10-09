@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Registro de Nuevo Producto</title>
+</head>
+<body>
+    <h1>Registro de Nuevo Producto</h1>
+
+    <form action="http://localhost/tecweb/practicas/p09/set_productos_v2.php" method="post">
+
+        <fieldset>
+            <legend>Información del Producto</legend>
+
+            <ul>
+                <li><label for="nombre">Nombre:</label> <input type="text" name="nombre" id="nombre"></li>
+                <li><label for="marca">Marca:</label> <input type="text" name="marca" id="marca"></li>
+                <li><label for="modelo">Modelo:</label> <input type="text" name="modelo" id="modelo"></li>
+                <li><label for="precio">Precio:</label> <input type="number" step="0.01" min="0" name="precio" id="precio"></li>
+                <li><label for="unidades">Unidades:</label> <input type="number" min="1" name="unidades" id="unidades"></li>
+                <li><label for="detalles">Detalles:</label><br><textarea name="detalles" rows="4" cols="50" id="detalles"></textarea></li>
+                <li><label for="imagen">Ruta Imagen (ej. img/producto.png):</label> <input type="text" name="imagen" id="imagen"></li>
+            </ul>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Registrar Producto">
+            <input type="reset" value="Limpiar">
+        </p>
+    </form>
+</body>
+</html>
