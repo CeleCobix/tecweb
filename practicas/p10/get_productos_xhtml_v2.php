@@ -62,7 +62,7 @@
                         <td><?= utf8_encode($row['detalles']) ?></td>
                         <td><img src="<?= $row['imagen'] ?>" style="max-width:100px;"/></td>
                         <td>
-                            <a href="formulario_productos._v2.php?id=<?= $row['id'] ?>&nombre=<?= $row['nombre'] ?>&edad=<?= $row['unidades'] ?>">Modificar</a>
+                            <a href="formulario_productos._v2.php?id=<?= $value['id'] ?>">Modificar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

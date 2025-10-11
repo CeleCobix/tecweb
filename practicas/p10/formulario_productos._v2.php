@@ -1,12 +1,42 @@
 <?php
-$nombre = $_POST['nombre'] ?? $_GET['nombre'] ?? '';
-$marca_actual = $_POST['marca'] ?? $_GET['marca'] ?? '';
-$modelo = $_POST['modelo'] ?? $_GET['modelo'] ?? '';
-$precio = $_POST['precio'] ?? $_GET['precio'] ?? '';
-$unidades = $_POST['unidades'] ?? $_GET['unidades'] ?? '';
-$detalles_actuales = $_POST['detalles'] ?? $_GET['detalles'] ?? '';
-$imagen = $_POST['imagen'] ?? $_GET['imagen'] ?? '';
+
+$link = new mysqli('localhost', 'root', 'yisshanli', 'marketzone');
+if ($link->connect_errno) {
+    die('Falló la conexión: ' . $link->connect_error);
+}
+
+// Si se recibe un ID, obtener los datos del producto desde la BD
+$id = $_GET['id'] ?? $_POST['id'] ?? '';
+$nombre = '';
+$marca_actual = '';
+$modelo = '';
+$precio = '';
+$unidades = '';
+$detalles_actuales = '';
+$imagen = '';
+
+if (!empty($id)) {
+    $query = "SELECT * FROM productos WHERE id = '$id'";
+    $result = $link->query($query);
+
+    if ($result && $result->num_rows > 0) {
+        $producto = $result->fetch_assoc();
+        $nombre = $producto['nombre'];
+        $marca_actual = $producto['marca'];
+        $modelo = $producto['modelo'];
+        $precio = $producto['precio'];
+        $unidades = $producto['unidades'];
+        $detalles_actuales = $producto['detalles'];
+        $imagen = $producto['imagen'];
+    } else {
+        echo "<script>alert('El producto con ID $id no existe.'); window.location.href='get_productos_vigentes_v2.php';</script>";
+        exit;
+    }
+}
+$link->close();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,7 +48,8 @@ $imagen = $_POST['imagen'] ?? $_GET['imagen'] ?? '';
 </head>
 <body>
     <h1>Edición de Producto</h1>
-    <form id="miFormulario" method="post">
+    <form id="miFormulario" method="post" action="update_producto.php">
+        <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>"> <!-- Campo oculto para el ID -->
         <fieldset>
             <legend>Actualiza los datos del producto:</legend>
             <ul>
