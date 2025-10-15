@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__.'/database.php';
+include_once _DIR_.'/database.php';
 
 $producto = file_get_contents('php://input');
 if(!empty($producto)) {
@@ -18,9 +18,10 @@ if(!empty($producto)) {
     $unidades = (int)($jsonOBJ->unidades ?? 1);
     $imagen   = $jsonOBJ->imagen ?? 'img/default.png';
 
-    $nombre_safe = $link->real_escape_string($nombre);
+    $nombre_safe = $conexion->real_escape_string($nombre);
+    
     $sql_check = "SELECT id FROM productos WHERE nombre='{$nombre_safe}' AND eliminado=0 LIMIT 1";
-    $result = $link->query($sql_check);
+    $result = $conexion->query($sql_check);
 
     if ($result && $result->num_rows > 0) {
         echo json_encode(['status' => 'error', 'message' => 'Ya existe un producto con el mismo nombre.']);
@@ -50,5 +51,10 @@ if(!empty($producto)) {
             ]);
         }
     }
+}
+
+// Cerrar la conexión después de usarla.
+if (isset($conexion) && $conexion) {
+    $conexion->close();
 }
 ?>
