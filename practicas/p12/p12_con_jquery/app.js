@@ -20,6 +20,9 @@ function init() {
     listarProductos();
 }
 
+var edit = false;
+var productId = null;
+
 // LISTAR PRODUCTOS
 function listarProductos() {
   $.ajax({
@@ -42,6 +45,7 @@ function listarProductos() {
             <td>${producto.nombre}</td>
             <td><ul>${descripcion}</ul></td>
             <td>
+              <button class="btn btn-warning btn-sm product-edit">Editar</button>
               <button class="btn btn-danger btn-sm product-delete">Eliminar</button>
             </td>
           </tr>
@@ -97,28 +101,44 @@ $(document).on("keyup", "#search", function () {
 
 // AGREGAR PRODUCTO
 $("#product-form").submit(function (e) {
-  e.preventDefault();
-  let finalJSON = JSON.parse($("#description").val());
-  finalJSON["nombre"] = $("#name").val();
+    e.preventDefault();
 
-  $.ajax({
-    url: "./backend/product-add.php",
-    type: "POST",
-    data: JSON.stringify(finalJSON),
-    contentType: "application/json; charset=UTF-8",
-    success: function (response) {
-      let res = JSON.parse(response);
-      let template_bar = `
-        <li style="list-style:none;">status: ${res.status}</li>
-        <li style="list-style:none;">message: ${res.message}</li>
-      `;
-      $("#product-result").removeClass("d-none").addClass("d-block");
-      $("#container").html(template_bar);
-      listarProductos();
-      $("#product-form").trigger("reset");
-      $("#description").val(JSON.stringify(baseJSON, null, 2));
-    },
-  });
+    // Determinar si estamos editando o agregando
+    let url = edit ? "./backend/product-edit.php" : "./backend/product-add.php";
+
+    let finalJSON = JSON.parse($("#description").val());
+    finalJSON["nombre"] = $("#name").val();
+
+    // Si estamos editando, agregar el ID
+    if (edit) {
+        finalJSON["id"] = productId;
+    }
+
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: JSON.stringify(finalJSON),
+        contentType: "application/json; charset=UTF-8",
+        success: function (response) {
+            let res = JSON.parse(response);
+            let template_bar = `
+                <li style="list-style:none;">status: ${res.status}</li>
+                <li style="list-style:none;">message: ${res.message}</li>
+            `;
+            $("#product-result").removeClass("d-none").addClass("d-block");
+            $("#container").html(template_bar);
+
+            listarProductos();
+
+            $("#product-form").trigger("reset");
+            $("#description").val(JSON.stringify(baseJSON, null, 2));
+
+            // Reset variables
+            edit = false;
+            productId = null;
+            $("#product-form").find("button[type=submit]").text("Agregar Producto");
+        }
+    });
 });
 
 // ELIMINAR PRODUCTO
@@ -142,4 +162,42 @@ $(document).on("click", ".product-delete", function () {
       },
     });
   }
+});
+
+// EDITAR PRODUCTO
+$(document).on("click", ".product-edit", function () {
+    let element = $(this)[0].parentElement.parentElement;
+    let id = $(element).attr("productId");
+
+    edit = true; // Activar modo edición
+    productId = id;
+
+    // Buscar el producto por ID para llenar el formulario
+    $.ajax({
+        url: "./backend/product-search.php",
+        type: "GET",
+        data: { search: id },
+        dataType: "json",
+        success: function (producto) {
+            producto = producto[0];
+            $("#name").val(producto.nombre);
+
+            // Formatear el JSON para mostrar en el textarea
+            let productoFormateado = {
+                precio: parseFloat(producto.precio),
+                unidades: parseInt(producto.unidades, 10),
+                modelo: producto.modelo,
+                marca: producto.marca,
+                detalles: producto.detalles,
+                imagen: producto.imagen
+            };
+
+            // Mostrar en el textarea el JSON formateado
+            $("#description").val(JSON.stringify(productoFormateado, null, 2));
+            $("#productId").val(producto.id);
+
+            // Cambiar texto del submit para indicar edición
+            $("#product-form").find("button[type=submit]").text("Actualizar Producto");
+        },
+    });
 });
