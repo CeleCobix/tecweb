@@ -3,9 +3,7 @@
 
     use TECWEB\MYAPI\DataBase;
 
-    class ProductCreate extends DataBase {
-        private $data;
-
+    class Create extends DataBase {
         public function __construct($db, $user='root', $pass='yisshanli') {
             $this->data = array();
             parent::__construct($db, $user, $pass);

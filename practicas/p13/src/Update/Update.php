@@ -3,9 +3,7 @@
 
     use TECWEB\MYAPI\DataBase;
 
-    class ProductUpdate extends DataBase {
-        private $data;
-
+    class Update extends DataBase {
         public function __construct($db, $user='root', $pass='yisshanli') {
             $this->data = array();
             parent::__construct($db, $user, $pass);

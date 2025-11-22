@@ -3,9 +3,7 @@
 
     use TECWEB\MYAPI\DataBase;
 
-    class ProductDelete extends DataBase {
-        private $data;
-
+    class Delete extends DataBase {
         public function __construct($db, $user='root', $pass='yisshanli') {
             $this->data = array();
             parent::__construct($db, $user, $pass);
